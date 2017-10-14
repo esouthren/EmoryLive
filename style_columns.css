@@ -1,7 +1,32 @@
+body {
+    margin: 0px;
+        font-family: 'Karla';
+    font-size: 16px;
+    background-color: whitesmoke;
+}
+
+.outer_container {
+    width: 100%;
+    
+    background-color: white;
+
+    bottom: 0;
+    position: relative;
+    height: 100%;
+    
+    margin: 0px auto;
+}
+
 .column-left{ 
-    float: left; width: 24%;
-    background-color: gainsboro;
+    float: left; 
+    width: 24%;
+    background-color: lightsteelblue;
     padding: 20px;
+    bottom: 0;
+    position: relative;
+    height: 100%;
+
+    
     }
 
 .column-right{ 
@@ -13,7 +38,27 @@
 
 .column-center{ 
     display: inline-block; 
-    width: 37%;
+    width: 30%;
     padding: 20x;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+}
+
+#text_box_uneditable {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: red;
+}
+
+
+#nav_button {
+    
+}
+ 
+#message_box {
+    width: 80%;
+    
 }
 
