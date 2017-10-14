@@ -57,52 +57,10 @@
             </div>
             
             <div class='center'>
-                <div id="text_box_uneditable">
-                    I'm a text box!
-                    <br />
-                    I have lines and things!
-                </div>
-                <br />
-                <div id="text_box_uneditable">
-                    I'm a text box!
-                    <br />
-                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
-                    <br />
-                </div><br />
-                                <div id="text_box_uneditable">
-                    I'm a text box!
-                    <br />
-                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
-                    <br />
-                </div>
-                <br /><br />
-                <div id="text_box_uneditable">
-                    I'm a text box!
-                    <br />
-                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
-                    <br />
-                </div>
-                <br />
-                <br />
-                <div id="text_box_uneditable">
-                    I'm a text box!
-                    <br />
-                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
-                    <br />
-                </div><br /><br />
-                <div id="text_box_uneditable">
-                    I'm a text box!
-                    <br />
-                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
-                    <br />
-                </div>
-                <br /><br />
-                <div id="text_box_uneditable">
-                    I'm a text box!
-                    <br />
-                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
-                    <br />
-                </div>
+                <div ng-repeat="entry in entries">
+                    <input type = "text" class="text_box"
+                           value="{{entry.text}}" />
+                </div>            
             </div>
         </div>
     </div>

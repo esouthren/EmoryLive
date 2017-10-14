@@ -34,7 +34,7 @@ textMachine.controller("textMachineController", function($scope, $http) {
         $scope.boop = "boop boop!";
     }
                                     
-
+    $scope.entries = response.data
                                                  
 });
                                                 
