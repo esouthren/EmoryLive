@@ -71,7 +71,6 @@ for key in emotions_dict:
     if emotions_dict[key] >= 0.75:
         print('This text has a lot of {} in it.'.format(key))
 
-
 if high_score < 0.5:
     print("There's a glimmer of {} in it. ({})".format(high_val, high_score))
 
