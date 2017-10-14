@@ -1,0 +1,102 @@
+html,body{ 
+    height:100%
+}
+
+.wrap {
+    width:100%;
+    height:100%;
+    position:relative; 
+}
+
+.bodywrap { 
+    margin-top:100px;
+ }
+ 
+.left {
+    width:18%;
+    top: 0px; 
+    bottom: 0px;
+    position: fixed;
+    background-color: #1a75ff;
+    padding: 0px 20px 20px 20px;
+    left: 0;
+}
+
+
+#analyse {
+    position: fixed;
+    bottom: 20px;
+    width: 18%;
+    background-color: #e6f2ff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.right {
+    width:30%;
+    top: 0px; 
+    bottom: 0px;
+    position: fixed;
+    background-color: #1a75ff;
+    padding: 0px 20px 20px 20px;
+    right: 0px;
+}
+
+.left,.center,.right,.bodywrap {
+    height:100%
+}
+
+.center {
+    margin:0px 21%;
+    width:44%;
+    background-color: white; 
+}
+
+
+body {
+    font-family: 'Karla';
+    font-size: 16px;
+    background-color: white;
+}
+
+#nav_button {
+    width: 100%;
+    padding: 15px;
+    background-color: #e6f2ff;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 120%;
+}
+
+#text_box_uneditable {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #e6f2ff;
+    border: 1px 1px 1px 1px #1a75ff;
+}
+
+
+#nav_button {
+    
+}
+ 
+#message_box {
+    width: 100%;
+    border-radius: 5px;
+    background-color: azure;
+    padding: 20px;    
+}
+
+#stats_container {
+    position:fixed;
+    width: 28%;    
+    bottom: 20px;
+}
+
+#right_image {
+    width: 100%;
+    height: 300px;
+    background-color: rgba(0,0,255,0.5);
+}
+
