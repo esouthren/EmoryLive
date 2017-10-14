@@ -4,14 +4,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<script src="controller.js"></script>  
-    
+<script src="controller.js"></script> 
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style_columns.css">
+
+
 
 <body>
     <div ng-app="textMachine" ng-controller="textMachineController"> 
-        {{ boop }}
-    <button ng-click="callApi()" name="callApi">Call API</button>
-        
+      
+        <div class="container">
+       <div class="column-center">Column center</div>
+       <div class="column-left">Column left</div>
+       <div class="column-right">Column right</div>
+        </div>
+
     </div>
     
 </body>    

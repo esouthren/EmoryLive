@@ -1,0 +1,19 @@
+.column-left{ 
+    float: left; width: 24%;
+    background-color: gainsboro;
+    padding: 20px;
+    }
+
+.column-right{ 
+    float: right; 
+    width: 37%;
+    background-color: blue;
+    padding: 20px;
+}
+
+.column-center{ 
+    display: inline-block; 
+    width: 37%;
+    padding: 20x;
+}
+
