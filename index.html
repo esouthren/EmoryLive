@@ -10,57 +10,115 @@
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
 
 
+
+</head>
+    
+<title>Team Haggis Meets Watson Meets Twist</title>
+<!-- Graph Things -->
 <body>
     <div ng-app="textMachine" ng-controller="textMachineController"> 
         <div class='wrap'>
+            
+            <!-- ****** LEFT - NAVIGATION ******** -->
             <div class='left'>
-                <br /><br />
-                <h1>*Insert Name Here*</h1>
-                <br /><br /><br /><br /><br /><br /><br />
-                <button id="nav_button" ng-click=function()>Add Entry</button>
-                <br /><br />
-                <button id="nav_button" ng-click=function()>Remove All Entries</button>
-                <br /><br />
-                <button id="nav_button" ng-click=function()>Undo</button>
-                <br />
-                <br />
-                <br />
-                <br />
                 
+                <center>
+                <h1 style="font-size: 350%">EmoryLive</h1>
+                <h2>Powered by Team Haggis</h2>
+                <h3>HackUPC 2017</h3>
+                </center>
+                
+                <br /><br /><br /><br /><br /><br /><br />
+                <button class="nav_button" ng-click=addEntry()>Add Entry</button>
+                <br /><br />
+                <button class="nav_button" ng-click=removeAll()>Remove All Entries</button>
+                <br /><br />
+                <button class="nav_button" ng-click=undo()>Undo</button>
                 <br />
-                    <button id="analyse" ng-click=function()><h1>Analyse</h1></button>
+                <br />
+                <br />
+                <br />                
+                <br />
+                <button id="analyse" ng-click=callApi()><h1>Analyse</h1></button>
                 
             </div>
-            
+            <!-- ****** RIGHT - STATS ******** -->
             <div class='right'>  
-                <div id="right_image">
-                    <h1>LOGO LOGO<br /><br />LOGO
-                    <BR /></h1> maybe
-                </div>
-                <br />
+              
+             
                <div id="stats_container">
+                  
                    <div id="message_box">
-                        Your Stats
+                        <h1>Your Sentiments</h1>    
+                    <table class="barTable">
+                    <tr>
+                        <td class="title">Anger</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[0]}}%'}"></div></td>
+                        </tr><tr></tr><tr></tr>
+                        
+                    <tr>
+                        <td class="title">Disgust</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[1]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        
+                    <tr>
+                        <td class="title">Fear</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[2]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        
+                    <tr>
+                        <td class="title">Joy</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[3]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                    
+                    <tr>
+                        <td class="title">Sadness</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[4]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        <tr>
+                        <td class="title">Analysis</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[5]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        <tr>
+                        <td class="title">Confidence</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[6]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        <tr>
+                        <td class="title">Tentativeness</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[7]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        <tr>
+                        <td class="title">Openness</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[8]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        <tr>
+                        <td class="title">Agreeableness</td>
+                        <td class='barCell'><div class="myBar" ng-style="{'width': '{{emoWidth[10   ]}}%'}"></div></td>
+                    </tr><tr></tr><tr></tr>
+                        
+                    </table>
                        <br /><br />
-                       things
-                       <br /><br />
-                       things
-                       <br /><br />
-                       things 
+                     
+                       
                    </div>
                     <br />
-                    <div id='message_box'>
-                        <h1>*Insert Totes Emosh Message Here*</h1>
+                    <div id='message_box2'>
+                        <h1>{{ response }}</h1>
+                        
                     </div>
                 </div>
             </div>
             
+            <!-- ****** CENTRE - TEXT ENTRIES ******** -->
             <div class='center'>
                 <div ng-repeat="entry in entries">
-                    <input type = "text" class="text_box"
-                           value="{{entry.text}}" />
-                </div>            
+                    <div id="text_box">
+                    <textarea rows="8"  style="font-size: 120%" class="text_area">{{entry}} </textarea>
+                    <br />
+                </div>          
+                    <br />
             </div>
+            
         </div>
     </div>
     

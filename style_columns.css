@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Karla);
+
 html,body{ 
     height:100%
 }
@@ -17,7 +19,7 @@ html,body{
     top: 0px; 
     bottom: 0px;
     position: fixed;
-    background-color: #1a75ff;
+    background-color: cadetblue;
     padding: 0px 20px 20px 20px;
     left: 0;
 }
@@ -32,12 +34,15 @@ html,body{
     padding: 5px;
 }
 
+#analyse:hover {
+    background-color: white;
+}
 .right {
-    width:30%;
+    width:31%;
     top: 0px; 
     bottom: 0px;
     position: fixed;
-    background-color: #1a75ff;
+    background-color: cadetblue;
     padding: 0px 20px 20px 20px;
     right: 0px;
 }
@@ -59,22 +64,35 @@ body {
     background-color: white;
 }
 
-#nav_button {
+.nav_button {
     width: 100%;
     padding: 15px;
     background-color: #e6f2ff;
-    border: 1px solid black;
+    border: 1px solid azure;
     border-radius: 5px;
     font-size: 120%;
 }
 
-#text_box_uneditable {
-    width: 100%;
+.nav_button:hover {
+    background-color: white;
+}
+
+
+#text_box textarea{
+    
     padding: 15px;
     border-radius: 5px;
     background-color: #e6f2ff;
     border: 1px 1px 1px 1px #1a75ff;
+     border: 0 none;
+    outline: 0 none;
+    padding: 20px;
+    width: 100%;
+    
+    font-family : "Karla", regular;
 }
+
+ 
 
 
 #nav_button {
@@ -83,15 +101,23 @@ body {
  
 #message_box {
     width: 100%;
+    border-radius: 0px 0px 5px 5px;
+    background-color: white;
+    padding: 20px;    
+}
+ 
+#message_box2 {
+    width: 100%;
     border-radius: 5px;
-    background-color: azure;
+    background-color: white;
     padding: 20px;    
 }
 
 #stats_container {
     position:fixed;
-    width: 28%;    
-    bottom: 20px;
+    width: 28%;   
+    border-radius: 5px;
+    20px;
 }
 
 #right_image {
@@ -99,6 +125,46 @@ body {
     height: 300px;
     background-color: rgba(0,0,255,0.5);
 }
+
+
+
+.myProgress {
+  width: 95%;
+  background-color: #ddd;
+}
+
+.myBar {
+
+  height: 20px;
+   
+border-radius: 5px;
+  background-color: #4CAF50;
+}
+
+.barCell {
+text-align: left;
+    background-color: lightslategrey;
+
+        border-radius: 5px;
+
+}
+
+.barTable {
+    width: 100%;
+    line-height: 1;   
+    
+  
+}
+
+.title {
+    width: 30%;
+
+}
+
+
+
+
+
 
 .preload{
 	width: 100%;
@@ -123,4 +189,3 @@ body {
 	0%{ transform: rotate(0deg); }
 	100%{ transform: rotate(360deg); }
 }
-
