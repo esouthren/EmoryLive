@@ -126,6 +126,8 @@ body {
     background-color: rgba(0,0,255,0.5);
 }
 
+
+
 .myProgress {
   width: 95%;
   background-color: #ddd;
@@ -163,3 +165,27 @@ text-align: left;
 
 
 
+
+.preload{
+	width: 100%;
+	height: 100%;
+	background: #333;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.load_img{
+	border:16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #1a75ff;
+	margin: 20% auto;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+}
+@keyframes spin{
+	0%{ transform: rotate(0deg); }
+	100%{ transform: rotate(360deg); }
+}
