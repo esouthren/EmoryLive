@@ -90,14 +90,11 @@ textMachine.controller("textMachineController", function($scope, $http) {
                     $scope.emoWidth[8] = 100*(($scope.response)["openness"]);
                     $scope.emoWidth[9] = 100*(($scope.response)["conscientiousness"]);
                     $scope.emoWidth[10] = 100*(($scope.response)["agreeableness"]);
-                    for (var i = 0; i < ($scope.emoWidth).length;i++) {
-                        $scope.emoWidth[i] = String($scope.emoWidth[i]) + '%';
-                    }
-            
+                              
               
                   
                     var largest_val = 0;
-                    var     index = 4;
+                    var index = 1;
                     for (var i=0; i < (($scope.emoWidth).length); i++) {
                         if ($scope.emoWidth[i] >= largest_val) {
                             largest_val = $scope.emoWidth[i];
@@ -141,8 +138,12 @@ textMachine.controller("textMachineController", function($scope, $http) {
                         default:
                               $scope.message = "Hmm.. Not sure what happened there. Try again?";                                  
                                                           }
+            
+            for (var i = 0; i < ($scope.emoWidth).length;i++) {
+                        $scope.emoWidth[i] = String($scope.emoWidth[i]) + '%';
+                    } 
                         
-                         $route.reload();                        
+                                            
                     
         }); 
             
