@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Karla);
+
 html,body{ 
     height:100%
 }
@@ -33,7 +35,7 @@ html,body{
 }
 
 .right {
-    width:30%;
+    width:31%;
     top: 0px; 
     bottom: 0px;
     position: fixed;
@@ -68,13 +70,21 @@ body {
     font-size: 120%;
 }
 
-#text_box_uneditable {
-    width: 100%;
+#text_box textarea{
+    
     padding: 15px;
     border-radius: 5px;
     background-color: #e6f2ff;
     border: 1px 1px 1px 1px #1a75ff;
+     border: 0 none;
+    outline: 0 none;
+    padding: 20px;
+    width: 100%;
+    
+    font-family : "Karla", regular;
 }
+
+ 
 
 
 #nav_button {

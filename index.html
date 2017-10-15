@@ -14,30 +14,30 @@
 <body>
     <div ng-app="textMachine" ng-controller="textMachineController"> 
         <div class='wrap'>
+            
+            <!-- ****** LEFT - NAVIGATION ******** -->
             <div class='left'>
                 <br /><br />
-                <h1>*Insert Name Here*</h1>
+                <h1><center>Team Haggis</center></h1>
+                
                 <br /><br /><br /><br /><br /><br /><br />
-                <button id="nav_button" ng-click=function()>Add Entry</button>
+                <button id="nav_button" ng-click=addEntry()>Add Entry</button>
                 <br /><br />
-                <button id="nav_button" ng-click=function()>Remove All Entries</button>
+                <button id="nav_button" ng-click=removeAll()>Remove All Entries</button>
                 <br /><br />
-                <button id="nav_button" ng-click=function()>Undo</button>
+                <button id="nav_button" ng-click=undo()>Undo</button>
                 <br />
                 <br />
                 <br />
                 <br />
                 
                 <br />
-                    <button id="analyse" ng-click=function()><h1>Analyse</h1></button>
+                    <button id="analyse" ng-click=callApi()><h1>Analyse</h1></button>
                 
             </div>
-            
+            <!-- ****** RIGHT - STATS ******** -->
             <div class='right'>  
-                <div id="right_image">
-                    <h1>LOGO LOGO<br /><br />LOGO
-                    <BR /></h1> maybe
-                </div>
+              
                 <br />
                <div id="stats_container">
                    <div id="message_box">
@@ -47,21 +47,26 @@
                        <br /><br />
                        things
                        <br /><br />
-                       things 
+                       {{ response }}
                    </div>
                     <br />
                     <div id='message_box'>
                         <h1>*Insert Totes Emosh Message Here*</h1>
+                        
                     </div>
                 </div>
             </div>
             
+            <!-- ****** CENTRE - TEXT ENTRIES ******** -->
             <div class='center'>
                 <div ng-repeat="entry in entries">
-                    <input type = "text" class="text_box"
-                           value="{{entry.text}}" />
-                </div>            
+                    <div id="text_box">
+                    <textarea rows="8"  style="font-size: 120%" class="text_area">{{entry}} /></textarea>
+                    <br />
+                </div>          
+                    <br />
             </div>
+            
         </div>
     </div>
     
