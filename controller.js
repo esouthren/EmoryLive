@@ -12,6 +12,11 @@ textMachine.controller("textMachineController", function($scope, $http) {
     $scope.first = {};
     $scope.second = {};
     $scope.third = {};
+    $scope.sorted = {};   
+    $scope.testVal = -1;  
+       
+          
+  
 
     $scope.entries_cache = $scope.entries;
     
@@ -36,8 +41,9 @@ textMachine.controller("textMachineController", function($scope, $http) {
     
     
     $scope.callApi = function(){        
+        $scope.response = "";
         
-        for (var e = 0; e < ($scope.entries).length; e++) {
+        for (var e = 0; (e < ($scope.entries).length); e++) {
             $scope.response =  ($scope.response).concat($scope.entries[e]);
         }
         
@@ -51,25 +57,19 @@ textMachine.controller("textMachineController", function($scope, $http) {
 	          method: "POST",
               // if successful API call:
             }).success(function(response){
-                $scope.response = response;
-              if (!response[0]) {
-                  console.log("nothing here boss");
-                  // display error image
-              }
             
+               
+                    $scope.response = response;
+                    
+        }); 
+            
+            
+            
+    };
             // LET'S GET SOME FACTS! //
             
-            // This is the worst possible way of finding the top three values
-            // but give me a break, I've been awake for some time now
-            
-            
-                
-            
-             
-            
-        });
-
-    }                                   
+                  
+                                       
     
                                                  
 });

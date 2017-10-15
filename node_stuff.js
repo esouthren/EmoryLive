@@ -32,7 +32,7 @@ app.post("/", function(user_request, response_to_user){
         console.log('error:', error);
       }
       else {
-          // Parse Data
+          // Par se Data
           watson_data = { 'anger' : watson_data['document_tone']['tone_categories'][0]['tones'][0]['score'],
                   'disgust' : watson_data['document_tone']['tone_categories'][0]['tones'][1]['score'],
                   'fear' : watson_data['document_tone']['tone_categories'][0]['tones'][2]['score'],

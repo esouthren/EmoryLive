@@ -9,7 +9,13 @@
 <link rel="stylesheet" type="text/css" href="style_columns.css">
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
 
+ <script src="angular-chart.js"></script>
+  <script src="angular-chart.min.js"></script>
+    
+<title>Team Haggis Meets Watson Meets Twist</title>
+<!-- Graph Things -->
 
+</head>
 
 <body>
     <div ng-app="textMachine" ng-controller="textMachineController"> 
@@ -41,13 +47,17 @@
                 <br />
                <div id="stats_container">
                    <div id="message_box">
-                        Your Stats
+                        
+                        <canvas id="radar" class="chart chart-radar"
+  chart-data="data" chart-options="options" chart-labels="labels">
+</canvas> 
                        <br /><br />
-                       things
+
                        <br /><br />
                        things
                        <br /><br />
                        {{ response }}
+                       
                    </div>
                     <br />
                     <div id='message_box'>
@@ -61,7 +71,7 @@
             <div class='center'>
                 <div ng-repeat="entry in entries">
                     <div id="text_box">
-                    <textarea rows="8"  style="font-size: 120%" class="text_area">{{entry}} /></textarea>
+                    <textarea rows="8"  style="font-size: 120%" class="text_area">{{entry}} </textarea>
                     <br />
                 </div>          
                     <br />
