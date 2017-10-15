@@ -15,7 +15,10 @@ textMachine.controller("textMachineController", function($scope, $http) {
     $scope.sorted = {};   
     $scope.testVal = -1;  
        
-          
+    $scope.emoColor = ['red', 'blue'];
+    $scope.emoWidth = [34,0,0,0,0,0,0,0,0,0,0];
+    $scope.emoWidth[3] = 40;
+      
   
 
     $scope.entries_cache = $scope.entries;
@@ -38,6 +41,7 @@ textMachine.controller("textMachineController", function($scope, $http) {
     $scope.woops = function() {
         $scope.entries = $scope.entries_cache;
     }
+   
     
     
     $scope.callApi = function(){        
@@ -60,13 +64,26 @@ textMachine.controller("textMachineController", function($scope, $http) {
             
                
                     $scope.response = response;
-                    
+                
+                    $scope.emoWidth[0] = ($scope.response)["anger"];
+                    $scope.emoWidth[1] = ($scope.response)["disgust"];
+                    $scope.emoWidth[2] = ($scope.response)["fear"];
+                    $scope.emoWidth[3] = ($scope.response)["joy"];
+                    $scope.emoWidth[4] = ($scope.response)["sadness"];
+                    $scope.emoWidth[5] = ($scope.response)["analysis"];
+                    $scope.emoWidth[6] = ($scope.response)["confidence"];
+                    $scope.emoWidth[7] = ($scope.response)["tentativeness"];
+                    $scope.emoWidth[8] = ($scope.response)["openness"];
+                    $scope.emoWidth[9] = ($scope.response)["conscientiousness"];
+                    $scope.emoWidth[10] = ($scope.response)["agreeableness"];
+            
+
         }); 
             
             
             
     };
-            // LET'S GET SOME FACTS! //
+            
             
                   
                                        
