@@ -92,7 +92,7 @@
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[8]}"></div></td>
                     </tr><tr></tr><tr></tr>
                         <tr>
-                        <td class="title">Agreeableness</td>
+                        <td class="title">Agreeability</td>
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[10]}"></div></td>
                     </tr><tr></tr><tr></tr>
                         
@@ -111,9 +111,9 @@
             
             <!-- ****** CENTRE - TEXT ENTRIES ******** -->
             <div class='center'>
-                <div ng-repeat="entry in entries">
+                <div ng-repeat="(i, entry) in entries track by $index">
                     <div id="text_box">
-                    <textarea rows="8"  style="font-size: 120%" class="text_area">{{entry}} </textarea>
+                    <textarea rows="8" style="font-size: 120%" class="text_area" ng-model="entries[i]">{{entry}} </textarea>
                     <br />
                 </div>          
                     <br />
@@ -123,8 +123,8 @@
     </div>
     
 </body>    
-    
-    
+                      
+</div>
 
 </head>
 

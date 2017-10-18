@@ -36,30 +36,40 @@ textMachine.controller("textMachineController", function($scope, $http) {
                       'extraversion', 'agreeableness'];
      
   
-
+    
     $scope.entries_cache = $scope.entries;
     
-    $scope.entries = ["Welcome to our app. I'm a test sentence. It's really great to meet you! Have a nice day :D",
-                     "This is the second array entry! Holy moly!"];
+    $scope.entries = ["Welcome to our app. I'm a test sentence. It's really great to meet you! Have a nice day :D"];
     
+    entries = 1;
     $scope.addEntry = function() {
         $scope.entries_cache = $scope.entries;
         ($scope.entries).push("...");
+        entries += 1;
     }
 	
     $scope.removeAll = function() {
         $scope.entries_cache = $scope.entries;
         $scope.entries = [];
+        entries = 0;
     }
     
     $scope.woops = function() {
         $scope.entries = $scope.entries_cache;
+        
     }
    
     
     
+    
+    
+    
     $scope.callApi = function(){        
         $scope.response = "";
+        
+     
+        
+        
         
         for (var e = 0; (e < ($scope.entries).length); e++) {
             $scope.response =  ($scope.response).concat($scope.entries[e]);
