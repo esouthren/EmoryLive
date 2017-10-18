@@ -39,7 +39,7 @@ textMachine.controller("textMachineController", function($scope, $http) {
     
     $scope.entries_cache = $scope.entries;
     
-    $scope.entries = ["Welcome to our app. I'm a test sentence. It's really great to meet you! Have a nice day :D"];
+    $scope.entries = ["Welcome to our app. I'm a test sentence. It's really great to meet you! Have a nice day :D Try pressing 'analyse' to see the sentiments of this text. "];
     
     entries = 1;
     $scope.addEntry = function() {
