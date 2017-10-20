@@ -31,7 +31,7 @@ textMachine.controller("textMachineController", function($scope, $http) {
     var extraversion = ["A person’s thoughts tell a lot about their behaviour and it seems like you are an outgoing and social person.", "Your personality is what makes you yourself."];
     var agreeableness = ["Guess who gets along well with others? That’s right, you! Cooperative people are always in demand."];
 
-    $scope.emoArray = ['angry', 'disgust', 'fear', 'joy', 'sadness', 'analysis',
+    $scope.emoArray = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'analysis',
                       'confidence', 'tentativeness', 'openness', 'conscientiousness',
                       'extraversion', 'agreeableness'];
 
@@ -88,19 +88,8 @@ textMachine.controller("textMachineController", function($scope, $http) {
                     console.log($scope.entries.length)
                     $scope.response = response;
 
-                    $scope.emoWidth[0] = 100*(($scope.response)["anger"]);
-                    $scope.emoWidth[1] = 100*(($scope.response)["disgust"]);
-                    $scope.emoWidth[2] = 100*(($scope.response)["fear"]);
-                    $scope.emoWidth[3] = 100*(($scope.response)["joy"]);
-                    $scope.emoWidth[4] = 100*(($scope.response)["sadness"]);
-                    $scope.emoWidth[5] = 100*(($scope.response)["analysis"]);
-                    $scope.emoWidth[6] = 100*(($scope.response)["confidence"]);
-                    $scope.emoWidth[7] = 100*(($scope.response)["tentativeness"]);
-                    $scope.emoWidth[8] = 100*(($scope.response)["openness"]);
-                    $scope.emoWidth[9] = 100*(($scope.response)["conscientiousness"]);
-                    $scope.emoWidth[10] = 100*(($scope.response)["agreeableness"]);
-
-
+                    for (i in $scope.emoWidth)
+                      $scope.emoWidth[i] = 100*(($scope.response)[$scope.emoArray[i]])
 
                     var largest_val = 0;
                     var index = 1;
