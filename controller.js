@@ -66,11 +66,9 @@ textMachine.controller("textMachineController", function($scope, $http) {
 
     $scope.callApi = function(){
         $scope.response = "";
-        for i in $scope.emoWidth.length
+
+        for (i in $scope.emoWidth)
           $scope.emoWidth[i] = 0
-
-
-
 
         for (var e = 0; (e < ($scope.entries).length); e++) {
             $scope.response =  ($scope.response).concat($scope.entries[e]);
