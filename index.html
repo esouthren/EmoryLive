@@ -2,9 +2,9 @@
 <head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<script src="controller.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="controller.js"></script>
 
 <link rel="stylesheet" type="text/css" href="style_columns.css">
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
@@ -12,22 +12,22 @@
 
 
 </head>
-    
+
 <title>Team Haggis Meets Watson Meets Twist</title>
 <!-- Graph Things -->
 <body>
-    <div ng-app="textMachine" ng-controller="textMachineController"> 
+    <div ng-app="textMachine" ng-controller="textMachineController">
         <div class='wrap'>
-            
+
             <!-- ****** LEFT - NAVIGATION ******** -->
             <div class='left'>
-                
+
                 <center>
                 <h1 style="font-size: 350%">EmoryLive</h1>
                 <h2>Powered by Team Haggis</h2>
                 <h3>HackUPC 2017</h3>
                 </center>
-                
+
                 <br /><br /><br /><br /><br /><br /><br />
                 <button class="nav_button" ng-click=addEntry()>Add Entry</button>
                 <br /><br />
@@ -37,40 +37,40 @@
                 <br />
                 <br />
                 <br />
-                <br />                
+                <br />
                 <br />
                 <button id="analyse" ng-click=callApi()><h1>Analyse</h1></button>
-                
+
             </div>
             <!-- ****** RIGHT - STATS ******** -->
-            <div class='right'>  
-              
-             
+            <div class='right'>
+
+
                <div id="stats_container">
-                  
+
                    <div id="message_box">
-                    <h1>Your Sentiments</h1>    
+                    <h1>Your Sentiments</h1>
                     <table class="barTable">
                     <tr>
                         <td class="title">Anger</td>
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[0]}"></div></td>
                         </tr><tr></tr><tr></tr>
-                        
+
                     <tr>
                         <td class="title">Disgust</td>
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[1]}"></div></td>
                     </tr><tr></tr><tr></tr>
-                        
+
                     <tr>
                         <td class="title">Fear</td>
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[2]}"></div></td>
                     </tr><tr></tr><tr></tr>
-                        
+
                     <tr>
                         <td class="title">Joy</td>
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[3]}"></div></td>
                     </tr><tr></tr><tr></tr>
-                    
+
                     <tr>
                         <td class="title">Sadness</td>
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[4]}"></div></td>
@@ -95,35 +95,35 @@
                         <td class="title">Agreeability</td>
                         <td class='barCell'><div class="myBar" ng-style="{'width': emoWidth[10]}"></div></td>
                     </tr><tr></tr><tr></tr>
-                        
+
                     </table>
                        <br />
-                     
-                       
+
+
                    </div>
                     <br />
                     <div id='message_box2'>
                         <h2>{{ message }}<br /></h2>
-                        
+
                     </div>
                 </div>
             </div>
-            
+
             <!-- ****** CENTRE - TEXT ENTRIES ******** -->
             <div class='center'>
                 <div ng-repeat="(i, entry) in entries track by $index">
                     <div id="text_box">
                     <textarea rows="8" style="font-size: 120%" class="text_area" ng-model="entries[i]">{{entry}} </textarea>
                     <br />
-                </div>          
+                </div>
                     <br />
             </div>
-            
+
         </div>
     </div>
-    
-</body>    
-                      
+
+</body>
+
 </div>
 
 </head>
@@ -131,4 +131,3 @@
 
 
 </html>
-
