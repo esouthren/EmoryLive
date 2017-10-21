@@ -10,6 +10,7 @@ fs.readFile('statements.csv', function (err, data) {
   let a = data.toString().split('\n')
   for (i in a)
     statements[i] = a[i].toString().split(',')
+  statements.length = statements.length - 1
 })
 
 let tone_analyzer = new ToneAnalyzerV3({
