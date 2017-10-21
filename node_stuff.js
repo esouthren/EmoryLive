@@ -1,15 +1,15 @@
-var bodyParser = require("body-parser");
-var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+// modules requried
+// const bodyParser = require("body-parser");
+// const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+// const express = require("express");
 
-var tone_analyzer = new ToneAnalyzerV3({
+let tone_analyzer = new ToneAnalyzerV3({
   username: '3cd90f89-d40d-4db6-81ce-3560ebf9c28a',
   password: 'yqLnKoVem8bG',
   version_date: '2016-05-19'
 });
 
-var express = require("express");
-
-var app = express();
+let app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -20,9 +20,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post("/", function(user_request, response_to_user){    
-    
-    var params = {
+app.post("/", function(user_request, response_to_user){
+
+    let params = {
       // Get the text from the JSON file.
       text: user_request.body.input,
     };
@@ -48,11 +48,11 @@ app.post("/", function(user_request, response_to_user){
                   'emotional range' : watson_data['document_tone']['tone_categories'][2]['tones'][4]['score'],
                   };
           console.log(watson_data);
-          
-          
+
+
           response_to_user.send(watson_data);
          // var tones = response.document_tone.tone_categories.tones
-          var tones = watson_data;
+          let tones = watson_data;
       }
     }
     );
