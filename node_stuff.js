@@ -1,7 +1,8 @@
+#!/usr/bin/env node
 // modules requried
-// const bodyParser = require("body-parser");
-// const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
-// const express = require("express");
+const bodyParser = require("body-parser");
+const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+const express = require("express");
 
 let tone_analyzer = new ToneAnalyzerV3({
   username: '3cd90f89-d40d-4db6-81ce-3560ebf9c28a',
