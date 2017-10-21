@@ -1,19 +1,11 @@
 // Angular Controller by ES
 // Abevents Web Application, April 2017
 
-// define application
-var textMachine = angular.module("textMachine", ['ngAnimate']);
-
 //define controller for application
-textMachine.controller("textMachineController", function($scope, $http) {
-
-    $scope.response = "";
-
-    $scope.sorted = {};
-    $scope.testVal = -1;
+angular.module("textMachine", ['ngAnimate']).controller(
+  "textMachineController", function($scope, $http) {
 
     $scope.emoWidth = [0,0,0,0,0,0,0,0,0,0,0];
-
     $scope.message = "Let's find out how you're coming across today...";
 
     /* Statements */
