@@ -9,20 +9,6 @@ angular.module("textMachine", ['ngAnimate']).controller(
     $scope.message = "Let's find out how you're coming across today...";
 
     /* Statements */
-    var anger = ["This too shall pass. When things fall apart, there’s no need to lose your temper. Worth trying another approach?", "Fighting fire with fire is not always the best approach. Maybe you should rethink a more pleasant reply."];
-    var disgust = ["Some words can be unpleasant for others, hopefully it was not the case.",
-    "Apparently something unpleasant came across, hopefully nothing major."];
-    var fear = ["Perhaps fear is a great survival mechanism but sometimes it’s better to clear your mind and overcome it.", "You can’t think clearly when your mind is flooded with fear. Get over it!", "Don’t run away from your fears. Fight them!"];
-    var joy = ["Glad to see you’re doing fine! Keep it that way!", "Nice to see a person who enjoys every single moment!"];
-    var sadness =["Life is like a zebra. There are both black and white stripes on it. Never give up, it’s such a wonderful life.","Sometimes life turns its back on you… Good thing is – not for long."];
-    var analysis = ["There’s a lot of rational thoughts in here. Also, it’s alright to be emotional sometimes, we are not robots, right?", "A thoughtful and rational person can sometimes feel a bit emotionless… Hopefully it doesn’t apply to you."];
-    var confidence = ["A lot of confidence in here. Well done!","Great! Looks like you are certain in your abilities!", "Confidence is the key to success. Carry on!"];
-    var tentativeness = ["Not much confidence in here… A tentative person can be perceived as doubtful.", "Doubts are not always helpful. It’s time to become more confident!"];
-    var openness = ["There’s nothing better than willingness to talk with others. Just make sure you know when you shouldn’t cross the line.", "Open minded people are always best to talk with. It looks like you are one of them!"];
-    var conscientiousness = ["Very well! Desire of accomplishing your goals is quite rare nowadays.", "It appears that you are an efficient and organised person. Your words speak for themselves."];
-    var extraversion = ["A person’s thoughts tell a lot about their behaviour and it seems like you are an outgoing and social person.", "Your personality is what makes you yourself."];
-    var agreeableness = ["Guess who gets along well with others? That’s right, you! Cooperative people are always in demand."];
-
     $scope.emoArray = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'analysis',
                       'confidence', 'tentativeness', 'openness', 'conscientiousness',
                       'extraversion', 'agreeableness'];

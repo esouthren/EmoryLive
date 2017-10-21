@@ -3,6 +3,14 @@
 const bodyParser = require("body-parser");
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 const express = require("express");
+const fs = require('fs')
+
+let statements = []
+fs.readFile('statements.csv', function (err, data) {
+  let a = data.toString().split('\n')
+  for (i in a)
+    statements[i] = a[i].toString().split(',')
+})
 
 let tone_analyzer = new ToneAnalyzerV3({
   username: '3cd90f89-d40d-4db6-81ce-3560ebf9c28a',
@@ -47,6 +55,7 @@ app.post("/", function(user_request, response_to_user){
                   'extraversion' : watson_data['document_tone']['tone_categories'][2]['tones'][2]['score'],
                   'agreeableness' : watson_data['document_tone']['tone_categories'][2]['tones'][3]['score'],
                   'emotional range' : watson_data['document_tone']['tone_categories'][2]['tones'][4]['score'],
+                  'statements' : statements
                   };
           console.log(watson_data);
 
