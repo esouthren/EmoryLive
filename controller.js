@@ -17,7 +17,7 @@ textMachine.controller("textMachineController", function($scope, $http) {
     $scope.message = "Let's find out how you're coming across today...";
 
     /* Statements */
-    var angry = ["This too shall pass. When things fall apart, there’s no need to lose your temper. Worth trying another approach?", "Fighting fire with fire is not always the best approach. Maybe you should rethink a more pleasant reply."];
+    var anger = ["This too shall pass. When things fall apart, there’s no need to lose your temper. Worth trying another approach?", "Fighting fire with fire is not always the best approach. Maybe you should rethink a more pleasant reply."];
     var disgust = ["Some words can be unpleasant for others, hopefully it was not the case.",
     "Apparently something unpleasant came across, hopefully nothing major."];
     var fear = ["Perhaps fear is a great survival mechanism but sometimes it’s better to clear your mind and overcome it.", "You can’t think clearly when your mind is flooded with fear. Get over it!", "Don’t run away from your fears. Fight them!"];
@@ -103,7 +103,7 @@ textMachine.controller("textMachineController", function($scope, $http) {
 
                    switch (index) {
                         case 0:
-                            $scope.message = angry[Math.floor(Math.random() * angry.length)];
+                            $scope.message = anger[Math.floor(Math.random() * anger.length)];
                             break;
                         case 1:
                             $scope.message = disgust[Math.floor(Math.random() * disgust.length)];
