@@ -1,172 +1,76 @@
 // Angular Controller by ES
 // Abevents Web Application, April 2017
 
-// define application
-var textMachine = angular.module("textMachine", ['ngAnimate']);
-
-//define controller for application
-textMachine.controller("textMachineController", function($scope, $http) {
-
-    $scope.response = "";
-
-    $scope.sorted = {};
-    $scope.testVal = -1;
-
-    $scope.emoWidth = [0,0,0,0,0,0,0,0,0,0,0];
-
-    $scope.message = "Let's find out how you're coming across today...";
+// define controller for application
+angular.module('textMachine', ['ngAnimate']).controller(
+  'textMachineController',
+  function ($scope, $http) {
+    $scope.emoWidth = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    $scope.message = "Let's find out how you're coming across today..."
 
     /* Statements */
-    var angry = ["This too shall pass. When things fall apart, there’s no need to lose your temper. Worth trying another approach?", "Fighting fire with fire is not always the best approach. Maybe you should rethink a more pleasant reply."];
-    var disgust = ["Some words can be unpleasant for others, hopefully it was not the case.",
-    "Apparently something unpleasant came across, hopefully nothing major."];
-    var fear = ["Perhaps fear is a great survival mechanism but sometimes it’s better to clear your mind and overcome it.", "You can’t think clearly when your mind is flooded with fear. Get over it!", "Don’t run away from your fears. Fight them!"];
-    var joy = ["Glad to see you’re doing fine! Keep it that way!", "Nice to see a person who enjoys every single moment!"];
-    var sadness =["Life is like a zebra. There are both black and white stripes on it. Never give up, it’s such a wonderful life.","Sometimes life turns its back on you… Good thing is – not for long."];
-    var analysis = ["There’s a lot of rational thoughts in here. Also, it’s alright to be emotional sometimes, we are not robots, right?", "A thoughtful and rational person can sometimes feel a bit emotionless… Hopefully it doesn’t apply to you."];
-    var confidence = ["A lot of confidence in here. Well done!","Great! Looks like you are certain in your abilities!", "Confidence is the key to success. Carry on!"];
-    var tentativeness = ["Not much confidence in here… A tentative person can be perceived as doubtful.", "Doubts are not always helpful. It’s time to become more confident!"];
-    var openness = ["There’s nothing better than willingness to talk with others. Just make sure you know when you shouldn’t cross the line.", "Open minded people are always best to talk with. It looks like you are one of them!"];
-    var conscientiousness = ["Very well! Desire of accomplishing your goals is quite rare nowadays.", "It appears that you are an efficient and organised person. Your words speak for themselves."];
-    var extraversion = ["A person’s thoughts tell a lot about their behaviour and it seems like you are an outgoing and social person.", "Your personality is what makes you yourself."];
-    var agreeableness = ["Guess who gets along well with others? That’s right, you! Cooperative people are always in demand."];
-
     $scope.emoArray = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'analysis',
-                      'confidence', 'tentativeness', 'openness', 'conscientiousness',
-                      'extraversion', 'agreeableness'];
+      'confidence', 'tentativeness', 'openness', 'conscientiousness',
+      'extraversion', 'agreeableness'
+    ]
 
+    $scope.entries_cache = $scope.entries
 
+    $scope.entries = ["Welcome to our app. I'm a test sentence. It's really great to meet you! Have a nice day :D Try pressing 'analyse' to see the sentiments of this text. "]
 
-    $scope.entries_cache = $scope.entries;
-
-    $scope.entries = ["Welcome to our app. I'm a test sentence. It's really great to meet you! Have a nice day :D Try pressing 'analyse' to see the sentiments of this text. "];
-
-    entries = 1;
-    $scope.addEntry = function() {
-        $scope.entries_cache = $scope.entries;
-        ($scope.entries).push("...");
-        entries += 1;
+    $scope.addEntry = function () {
+      $scope.entries_cache = $scope.entries
+      $scope.entries.push('...')
     }
 
-    $scope.removeAll = function() {
-        $scope.entries_cache = $scope.entries;
-        $scope.entries = [];
-        entries = 0;
+    $scope.removeAll = function () {
+      $scope.entries_cache = $scope.entries
+      $scope.entries = []
     }
 
-    $scope.woops = function() {
-        $scope.entries = $scope.entries_cache;
-
+    $scope.woops = function () {
+      $scope.entries = $scope.entries_cache
     }
 
+    $scope.callApi = function () {
+      $scope.response = ''
 
+      for (let i in $scope.emoWidth) $scope.emoWidth[i] = 0
 
+      for (let i of $scope.entries) $scope.response = $scope.response.concat(i)
 
+      // aight here we go! Starting API Call
+      $http({
+        url: 'http://localhost:8080/',
+        data: {
+          // this is where the user input is submitted
+          'input': $scope.response
+        },
+        method: 'POST'
+        // if successful API call:
+      }).success(function (response) {
+        $scope.response = response
 
-
-    $scope.callApi = function(){
-        $scope.response = "";
-
-        for (i in $scope.emoWidth)
-          $scope.emoWidth[i] = 0
-
-        for (var e = 0; (e < ($scope.entries).length); e++) {
-            $scope.response =  ($scope.response).concat($scope.entries[e]);
+        for (let i in $scope.emoWidth) {
+          $scope.emoWidth[i] =
+          100 * (($scope.response)[$scope.emoArray[i]])
         }
 
-        // aight here we go! Starting API Call
-        $http({
-            url: 'http://localhost:8080/',
-            data: {
-              // this is where the user input is submitted
-              "input": $scope.response,
-	          },
-	          method: "POST",
-              // if successful API call:
-            }).success(function(response){
+        var index = 0
+        for (let i, e = 0; i < $scope.emoWidth.length; i++) {
+          if ($scope.emoWidth[i] >= e) {
+            e = $scope.emoWidth[i]
+            index = i
+          }
+        }
 
-                    console.log($scope.entries.length)
-                    $scope.response = response;
+        // choose a message from the response
+        let m = Math.floor(Math.random()) * (response.statements[index].length)
+        $scope.message = response.statements[index][m]
 
-                    for (i in $scope.emoWidth)
-                      $scope.emoWidth[i] = 100*(($scope.response)[$scope.emoArray[i]])
-
-                    var largest_val = 0;
-                    var index = 1;
-                    for (var i=0; i < (($scope.emoWidth).length); i++) {
-                        if ($scope.emoWidth[i] >= largest_val) {
-                            largest_val = $scope.emoWidth[i];
-                            index = i;
-                        }
-                    }
-                    // Fine corresponding message
-
-                   switch (index) {
-                        case 0:
-                            $scope.message = angry[Math.floor(Math.random() * angry.length)];
-                            break;
-                        case 1:
-                            $scope.message = disgust[Math.floor(Math.random() * disgust.length)];
-                            break;
-                        case 2:
-                            $scope.message = fear[Math.floor(Math.random() * fear.length)];
-                            break;
-                        case 3:
-                            $scope.message = joy[Math.floor(Math.random() * joy.length)];
-                            break;
-                        case 4:
-                            $scope.message = sadness[Math.floor(Math.random() * sadness.length)];
-                            break;
-                        case 5:
-                            $scope.message = analysis[Math.floor(Math.random() * analysis.length)];
-                            break;
-                        case 6:
-                            $scope.message = confidence[Math.floor(Math.random() * confidence.length)];
-                            break;
-                        case 7:
-                            $scope.message = tentativeness[Math.floor(Math.random() * tentativeness.length)];
-                            break;
-                        case 8:
-                            $scope.message = openness[Math.floor(Math.random() * openness.length)];
-                            break;
-                        case 9:
-                            $scope.message = conscientiousness[Math.floor(Math.random() * conscientiousness.length)];
-                            break;
-
-                        default:
-                              $scope.message = "Hmm.. Not sure what happened there. Try again?";
-                                                          }
-
-            for (var i = 0; i < ($scope.emoWidth).length;i++) {
-                        $scope.emoWidth[i] = String($scope.emoWidth[i]) + '%';
-                    }
-
-
-
-        });
-
-
-
-    };
-
-
-
-
-
-
-});
-/*
- anger: 0.255687,
-  disgust: 0.07021,
-  fear: 0.091376,
-  joy: 0.014206,
-  sadness: 0.695304,
-  analysis: 0,
-  confidence: 0,
-  tentativeness: 0,
-  openness: 0.246078,
-  conscientiousness: 0.275057,
-  extraversion: 0.535544,
-  agreeableness: 0.595745,
-  'emotional range': 0.190936
-  */
+        for (var i = 0; i < ($scope.emoWidth).length; i++) {
+          $scope.emoWidth[i] = String($scope.emoWidth[i]) + '%'
+        }
+      })
+    }
+  })
