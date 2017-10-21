@@ -77,43 +77,12 @@ angular.module("textMachine", ['ngAnimate']).controller(
                             index = i;
                         }
                     }
-                    // Fine corresponding message
-
-                   switch (index) {
-                        case 0:
-                            $scope.message = anger[Math.floor(Math.random() * anger.length)];
-                            break;
-                        case 1:
-                            $scope.message = disgust[Math.floor(Math.random() * disgust.length)];
-                            break;
-                        case 2:
-                            $scope.message = fear[Math.floor(Math.random() * fear.length)];
-                            break;
-                        case 3:
-                            $scope.message = joy[Math.floor(Math.random() * joy.length)];
-                            break;
-                        case 4:
-                            $scope.message = sadness[Math.floor(Math.random() * sadness.length)];
-                            break;
-                        case 5:
-                            $scope.message = analysis[Math.floor(Math.random() * analysis.length)];
-                            break;
-                        case 6:
-                            $scope.message = confidence[Math.floor(Math.random() * confidence.length)];
-                            break;
-                        case 7:
-                            $scope.message = tentativeness[Math.floor(Math.random() * tentativeness.length)];
-                            break;
-                        case 8:
-                            $scope.message = openness[Math.floor(Math.random() * openness.length)];
-                            break;
-                        case 9:
-                            $scope.message = conscientiousness[Math.floor(Math.random() * conscientiousness.length)];
-                            break;
-
-                        default:
-                              $scope.message = "Hmm.. Not sure what happened there. Try again?";
-                                                          }
+                    
+                    // choose a message from the response
+                    $scope.message = response.statements[index][
+                      Math.floor(Math.random()) * (
+                        response.statements[index].length
+                    )]
 
             for (var i = 0; i < ($scope.emoWidth).length;i++) {
                         $scope.emoWidth[i] = String($scope.emoWidth[i]) + '%';
