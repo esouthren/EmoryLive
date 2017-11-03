@@ -59,6 +59,6 @@ app.post("/", function(user_request, response_to_user){
 });
 var port = process.env.PORT || 1337;
 app.listen(port, function() {
-    console.log("Listening on port 8080");
+    console.log("Listening!");
 });
 
