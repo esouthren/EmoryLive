@@ -57,7 +57,7 @@ app.post("/", function(user_request, response_to_user){
     }
     );
 });
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
     console.log("Listening!");
 });
